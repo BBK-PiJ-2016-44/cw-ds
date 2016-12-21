@@ -43,7 +43,19 @@
 	 * @see List#remove
 	 */
 	public ReturnObject remove(int index) { 
-		return null;
+	// DRY - create a method to avoid repetition of this code.
+		if (this.isEmpty()) { 
+			return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+		} else if (index < 0 || index >= this.size()) { 
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else { 
+			Object objectToRemove = array[index];
+			for (int i = index + 1; i < this.arraySize;i++) { 
+				array[i-1] = array[i];
+			}
+			arraySize--;
+			return new ReturnObjectImpl(objectToRemove);
+		}
 	}
 	
 	/**	
