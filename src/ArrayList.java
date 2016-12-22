@@ -5,7 +5,7 @@
  */ 
  
  public class ArrayList implements List { 
-	private int arraySize = 0;
+	private int arraySize ;
 	private Object[]  array = new Object[0];
 	
 	/**
@@ -62,17 +62,32 @@
 	 * @see List#add(int index, Object item)
 	 */
 	public ReturnObject add(int index, Object item) { 
-		return null;
+		if (index < 0 || index >= this.size()){ 
+			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
+		} else if (item == null) {
+			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		}
+		
+		for (int i = index + 1; i <= this.size(); i++) { 
+			array[i] = array[i + 1];
+		}
+		array[index] = item;
+		arraySize = arraySize + 1;
+		return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 	}
 	
 	/** 
 	 * @see List#add(Object item)
 	 */
 	public ReturnObject add(Object item){ 
-		return null;
+		if (item == null) { 
+			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
+		}
+		arraySize = arraySize + 1;
+		array[size()] = item;  //Add item to last element of array
+		
+		return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 	}
- 
- 
  
  
  
