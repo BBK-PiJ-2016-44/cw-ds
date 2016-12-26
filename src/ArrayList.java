@@ -68,7 +68,7 @@
 	public ReturnObject add(int index, Object item) { 
 		if (index < 0 || index >= this.size()){ 
 			return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
-		} else if (item == null) {
+		} else if (item == (null)) {
 			return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
 		}
 		

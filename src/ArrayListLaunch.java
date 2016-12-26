@@ -40,7 +40,7 @@ public class ArrayListLaunch{
 		myList.remove(2);
 		System.out.println("The list size is " + myList.size());
 		
-		System.out.println(myList.get(8));
+		System.out.println(myList.get(3));
 	
 		
 	
