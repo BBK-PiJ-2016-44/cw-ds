@@ -4,9 +4,13 @@
  * @author Nick Montague
  */ 
  
- public class ArrayList implements List { 
+ public class ArrayList implements List{ 
 	private int arraySize ;
-	private Object[]  array = new Object[0];
+	private final static int originalSize = 32;
+	private Object[]  array = new Object[originalSize]; 
+	// Will need a mechanism to increase array size if it gets 
+	// greater than 32 elements
+	
 	
 	/**
 	 * @see List#isEmpty
@@ -88,8 +92,6 @@
 		
 		return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
 	}
- 
- 
  
  }
  
