@@ -1,5 +1,7 @@
 /**
  * An implementation of the ReturnObject interface 
+ *
+ * @author Nick Montague
  */
  public class ReturnObjectImpl implements ReturnObject { 
 	private Object returnValue;
